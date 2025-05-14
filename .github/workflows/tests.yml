@@ -11,9 +11,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: extdn/github-actions-m2/magento-unit-tests/8.3@master
+      - name: "Unit tests - 2.4.5-p12 & PHP 8.1"
+        uses: extdn/github-actions-m2/magento-unit-tests/8.1@master
         with:
-          magento_version: '2.4.7-p4'
+          magento_version: 2.4.5-p12
+          module_name: PushON_SalesRuleExtendedGroups
+          composer_name: pushonltd/module-sales-rule-extended-groups
+      - name: "Unit tests - 2.4.6-p10 & PHP 8.2"
+        uses: extdn/github-actions-m2/magento-unit-tests/8.2@master
+        with:
+          magento_version: 2.4.6-p10
+          module_name: PushON_SalesRuleExtendedGroups
+          composer_name: pushonltd/module-sales-rule-extended-groups
+      - name: "Unit tests - 2.4.7-p5 & PHP 8.3"
+        uses: extdn/github-actions-m2/magento-unit-tests/8.3@master
+        with:
+          magento_version: 2.4.7-p5
           module_name: PushON_SalesRuleExtendedGroups
           composer_name: pushonltd/module-sales-rule-extended-groups
 
@@ -39,9 +52,21 @@ jobs:
         options: --health-cmd="curl localhost:9200/_cluster/health?wait_for_status=yellow&timeout=60s" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - uses: actions/checkout@v4
-      - name: M2 Integration Tests - 2.4.7-p5 & PHP 8.3
-        uses: extdn/github-actions-m2/magento-integration-tests/8.3@master
+      - name: "Integration tests - 2.4.5-p12 & PHP 8.1"
+        uses: extdn/github-actions-m2/magento-integration-tests/8.1@master
         with:
+          magento_version: 2.4.5-p12
           module_name: PushON_SalesRuleExtendedGroups
           composer_name: pushonltd/module-sales-rule-extended-groups
-          magento_version: '2.4.7-p5'
+      - name: "Integration tests - 2.4.6-p10 & PHP 8.2"
+        uses: extdn/github-actions-m2/magento-integration-tests/8.2@master
+        with:
+          magento_version: 2.4.6-p10
+          module_name: PushON_SalesRuleExtendedGroups
+          composer_name: pushonltd/module-sales-rule-extended-groups
+      - name: "Integration tests - 2.4.7-p5 & PHP 8.3"
+        uses: extdn/github-actions-m2/magento-integration-tests/8.3@master
+        with:
+          magento_version: 2.4.7-p5
+          module_name: PushON_SalesRuleExtendedGroups
+          composer_name: pushonltd/module-sales-rule-extended-groups
