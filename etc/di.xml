@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\SalesRule\Model\ResourceModel\Rule">
+        <plugin name="PushON_SalesRuleExtendedGroups::applyAllGroups"
+                sortOrder="100"
+                type="PushON\SalesRuleExtendedGroups\Plugin\SalesRule\ResourceModel\Rule\ApplyAllGroups"/>
+    </type>
+
+    <type name="PushON\SalesRuleExtendedGroups\Plugin\SalesRule\ResourceModel\Rule\Collection\ApplyAllGroupsFilter">
+        <arguments>
+            <argument name="associatedEntityMap"
+                      xsi:type="object">Magento\SalesRule\Model\ResourceModel\Rule\AssociatedEntityMap</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\SalesRule\Model\ResourceModel\Rule\Collection">
+        <plugin name="PushON_SalesRuleExtendedGroups::applyAllGroups"
+                type="PushON\SalesRuleExtendedGroups\Plugin\SalesRule\ResourceModel\Rule\Collection\ApplyAllGroupsFilter"/>
+    </type>
+
+    <type name="Magento\SalesRule\Model\Rule">
+        <plugin name="PushON_SalesRuleExtendedGroups::populateAllGroups"
+                type="PushON\SalesRuleExtendedGroups\Plugin\SalesRule\Rule\PopulateAllGroupsFromRequest" />
+    </type>
+</config>

@@ -7,3 +7,4 @@ parameters:
     excludePaths:
         - vendor/*
         - 'Test/Integration/**/*'
+        - 'Test/Unit/**/*'
