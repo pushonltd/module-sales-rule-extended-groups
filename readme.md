@@ -21,7 +21,7 @@ bin/magento setup:static-content:deploy
 
 ## Usage
 
-After installation, navigate to **Marketing > Cart Price Rules** in the Magento Admin Panel. When creating or editing a rule, you'll find the new "All Groups" option in the Customer Groups field.  
-Selecting this option applies the rule to all customer groups.
+After installation, navigate to **Marketing > Cart Price Rules** in the Magento Admin Panel. When creating or editing a rule, you'll find the switcher "Apply rule to all Customer Groups?" under the Customer Groups field.  
+Enabling it applies the rule to all customer groups.
 
 ![Cart Rule Edit Page](./docs/img/cart_rule_edit_page.png)
