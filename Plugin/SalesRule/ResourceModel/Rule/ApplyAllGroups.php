@@ -18,6 +18,7 @@ class ApplyAllGroups
         Rule          $subject,
         AbstractModel $object
     ): ?array {
+        // @phpstan-ignore function.alreadyNarrowedType
         if (!method_exists($object, 'setData')) {
             return null;
         }
